@@ -1,7 +1,7 @@
 # Statistical Abstraction Framework for Ordinal Cybersickness Prediction
 
 # Methodology
-![Statistical Abstraction Framework](./images/pipeline_placeholder.png)
+![Statistical Abstraction Framework](Abstraction_Framework.png)
 
 This section discusses the **data preprocessing**, the **statistical abstraction framework**, and explains the **model architecture and training setup**.
 
