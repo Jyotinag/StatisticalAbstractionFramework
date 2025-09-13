@@ -146,62 +146,33 @@ This section lists all mathematical formulations used in the methodology.
 
 ---
 
-## Projection to a Single Score
-\[
+```math
 s = \mathbf{w}_{\text{attn}}^T \cdot \mathbf{h}_{\text{attn}} + b
-\]
 
----
-
-## Cumulative Probability for Ordinal Regression
-\[
+```math
 P(Y \leq k \mid \mathbf{x}) = \sigma(\tilde{\theta}_k - s) = \frac{1}{1 + \exp(-(\tilde{\theta}_k - s))}
-\]
-for \(k = 1, 2, \ldots, K-1\).
 
----
-
-## Individual Class Probability
-\[
+```math
 P(Y = k \mid \mathbf{x}) =
 \begin{cases}
-P(Y \leq 1 \mid \mathbf{x}) & \text{if } k = 1 \\[6pt]
-P(Y \leq k \mid \mathbf{x}) - P(Y \leq k-1 \mid \mathbf{x}) & \text{if } 2 \leq k \leq K-1 \\[6pt]
+P(Y \leq 1 \mid \mathbf{x}) & \text{if } k = 1 \\
+P(Y \leq k \mid \mathbf{x}) - P(Y \leq k-1 \mid \mathbf{x}) & \text{if } 2 \leq k \leq K-1 \\
 1 - P(Y \leq K-1 \mid \mathbf{x}) & \text{if } k = K
 \end{cases}
-\]
 
----
-
-## Expected Ordinal Value
-\[
+```math
 \hat{y}_{\text{ord}} = \mathbb{E}[Y \mid \mathbf{x}] = \sum_{k=1}^{K} k \cdot P(Y = k \mid \mathbf{x})
-\]
 
----
-
-## Regression Loss
-\[
+```math
 \mathcal{L}_{\text{reg}} = \text{SmoothL1}(\hat{y}_{\text{reg}}, y_{\text{true}})
-\]
 
----
-
-## Smooth L1 Loss
-\[
+```math
 \text{SmoothL1}(x) =
 \begin{cases}
-0.5x^2 & \text{if } |x| < 1 \quad \text{(quadratic for small errors)} \\[6pt]
-|x| - 0.5 & \text{if } |x| \geq 1 \quad \text{(linear for large errors)}
+0.5x^2 & \text{if } |x| < 1 \\
+|x| - 0.5 & \text{if } |x| \geq 1
 \end{cases}
-\]
 
----
-
-## Final Prediction
-\[
+```math
 \text{Final Score} = W_{\text{ord}} \times \hat{y}_{\text{ord}} + W_{\text{reg}} \times \hat{y}_{\text{reg}}
-\]
-
----
 
