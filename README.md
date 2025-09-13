@@ -149,10 +149,12 @@ This section lists all mathematical formulations used in the methodology.
 ```math
 s = \mathbf{w}_{\text{attn}}^T \cdot \mathbf{h}_{\text{attn}} + b
 
-\\\\
+```
+```math
 P(Y \leq k \mid \mathbf{x}) = \sigma(\tilde{\theta}_k - s) = \frac{1}{1 + \exp(-(\tilde{\theta}_k - s))}
 
-\\\\
+```
+```math
 P(Y = k \mid \mathbf{x}) =
 \begin{cases}
 P(Y \leq 1 \mid \mathbf{x}) & \text{if } k = 1 \\
@@ -160,19 +162,22 @@ P(Y \leq k \mid \mathbf{x}) - P(Y \leq k-1 \mid \mathbf{x}) & \text{if } 2 \leq 
 1 - P(Y \leq K-1 \mid \mathbf{x}) & \text{if } k = K
 \end{cases}
 
-\\\\
+```
+```math
 \hat{y}_{\text{ord}} = \mathbb{E}[Y \mid \mathbf{x}] = \sum_{k=1}^{K} k \cdot P(Y = k \mid \mathbf{x})
+```
 
-\\\\
+```math
 \mathcal{L}_{\text{reg}} = \text{SmoothL1}(\hat{y}_{\text{reg}}, y_{\text{true}})
-
-\\\\
+```
+```math
 \text{SmoothL1}(x) =
 \begin{cases}
 0.5x^2 & \text{if } |x| < 1 \\
 |x| - 0.5 & \text{if } |x| \geq 1
 \end{cases}
 
-\\\\
+```
+```math
 \text{Final Score} = W_{\text{ord}} \times \hat{y}_{\text{ord}} + W_{\text{reg}} \times \hat{y}_{\text{reg}}
-\\\\
+```
